@@ -1,14 +1,16 @@
 import socket
-target_host = "127.0.0.1"
+target_host = "192.168.122.255"
 target_port = 9997
+
 
 # Create a client
 
-client=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-
+client=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+# Start a connection
+client.connect((target_host, target_port))
 # send some data
 
-client.sendto(b"HiThere",(target_host,target_port))
+client.send(b"HiThere")
 
 # recieve some data
 
